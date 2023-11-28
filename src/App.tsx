@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import css
 import './App.css';
 
 const Form = () => {
@@ -20,7 +19,8 @@ const Form = () => {
     });
 
     if (response.ok) {
-      setResult('Form submitted successfully');
+      const data = await response.json();
+      setResult(data.message);
     } else {
       setResult('Failed to submit form');
     }
